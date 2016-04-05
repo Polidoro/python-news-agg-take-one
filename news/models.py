@@ -6,7 +6,7 @@ from django.db import models
 
 class Feed(models.Model):
 	title = models.CharField(max_length=200)
-	url = models.URLField()
+	url = models.URLField(unique=True)
 	is_active = models.BooleanField(default=False)
 
 	def __str__(self):
@@ -15,7 +15,7 @@ class Feed(models.Model):
 class Article(models.Model):
 	feed = models.ForeignKey(Feed)
 	title = models.CharField(max_length=200)
-	url = models.URLField()
+	url = models.URLField(unique=True)
 	description = models.TextField()
 	publication_date = models.DateTimeField()
 

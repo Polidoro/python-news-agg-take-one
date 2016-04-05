@@ -10,7 +10,10 @@ import datetime
 
 def articles_list(request):
 	articles = Article.objects.all()
-	return render(request, 'news/articles_list.html', {'articles': articles})
+
+	rows = [articles[x:x+1] for x in range(0, len(articles), 1)]
+
+	return render(request, 'news/articles_list.html', {'rows': rows})
 
 def feeds_list(request):
 	feeds = Feed.objects.all()
