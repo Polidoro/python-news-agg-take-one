@@ -2,7 +2,6 @@
 
     {% block content %}
 
-
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
@@ -11,9 +10,11 @@
     </div>
 
     <div class="container">
+      <a href="{% url 'feed_new' %}" class="button">New Feed</a>
+
       <ul>
-        {% for article in articles %}
-          <li><a href="{{ article.url }}">{{ article.title }}</a></li>
+        {% for feed in feeds %}
+          <li><a href="{{ feed.url }}">{{ feed.title }}</a></li>
         {% endfor %}
       </ul>
 
@@ -21,5 +22,5 @@
         <p>&copy; 2015 Company, Inc.</p>
       </footer>
     </div> <!-- /container -->
-
+    
     {% endblock %}
